@@ -1,14 +1,15 @@
-let i = 1;
+let i = 0;
 const idNum = document.getElementById('idNum');
 const coment = document.getElementById('coment');
 const status = document.getElementById('status');
 
-addBtn = () => {
-  let userTask = document.getElementById('userTask');
+document.getElementById('addBtn').addEventListener('click',() => {
+
+  const userTask = document.getElementById('userTask');
 
   const addIdnum  = () => {  
     const p = document.createElement('p');
-    p.textContent = -1 + i;
+    p.textContent = i;
     idNum.appendChild(p);
     i ++;
   };
@@ -44,4 +45,4 @@ addBtn = () => {
   addComent();
   addStatus();
   addStatus2();
-};
+});
