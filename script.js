@@ -14,8 +14,17 @@ addBtn.addEventListener('click',() => {
   const todoComment = document.createElement('td');
   todoComment.textContent = userTask.value;
 
-  const workBtn = document.createElement('button');
-  workBtn.textContent = '作業中';
+  const statusBtn = document.createElement('button');
+  statusBtn.textContent = '作業中';
+  statusBtn.addEventListener('click', (elem) => {
+    const action = elem.target.closest('button');
+    if (action.textContent === '作業中') {
+      action.textContent = '完了';
+    } else {
+      action.textContent = '作業中';
+    }
+  });
+
 
   const eraseBtn = document.createElement('button');
   eraseBtn.textContent = '削除';  
@@ -33,7 +42,7 @@ addBtn.addEventListener('click',() => {
 
   tableRecode.appendChild(todoId);
   tableRecode.appendChild(todoComment);
-  tableRecode.appendChild(workBtn);
+  tableRecode.appendChild(statusBtn);
   tableRecode.appendChild(eraseBtn);
 
   userTask.value = '';
