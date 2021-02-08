@@ -3,45 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>課題③</title>
+  <title>課題③-2</title>
 </head>
   <style>
     .title {
       font: italic small-caps bold 42px/2 cursive;
       margin: auto;
     }
-    #selection {
-      display: flex;
-      font-size: x-large;
+    button {
+      width: 60px;
+      height: 25px;
     }
-    #selection2 {
-      display: flex;
-      font: small-caps bold 24px/1 sans-serif;
-    }
-    .mlmr-30 {
-      margin: 0 30px;
-    }
-    .mtr {
-      margin: 21px 10px 0 0;
-    }
-
   </style>
 <body>
   <div class="title">ToDoリスト</div>
   <div id="selection">
-    <p><input type="radio">すべて</p>
-    <p><input type="radio">作業中</p>
-    <p><input type="radio">完了</p>
+    <p>
+      <input type="radio" name="category" checked="checked">すべて
+      <input type="radio" name="category">作業中
+      <input type="radio" name="category">完了
+    </p>
   </div>
   <div id="selection2">
-    <div id="idNum">ID</div>
-    <div id="coment" class="mlmr-30" >コメント</div>
-    <div id="status" >状態</div>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>コメント</th>
+          <th>状態</th>
+        </tr>
+      </thead>
+    <tbody id="my-todo">
+    </tbody>
+    </table>
   </div>
   <div><h1>新規タスクの追加</h1></div>
   <div>
-    <input id="userTask" type="text">
-    <input id="addBtn" type="submit" value="追加">
+    <input id="user-task" type="text">
+    <button id="add-btn">追加</button>
   </div>
   <script type="text/javascript" src="script.js"></script>
 </body>

@@ -1,48 +1,41 @@
-let i = 0;
-const idNum = document.getElementById('idNum');
-const coment = document.getElementById('coment');
-const status = document.getElementById('status');
+let increaseNum = 0;
+const myTodo = document.getElementById('my-todo');
+const addBtn = document.getElementById('add-btn');
 
-document.getElementById('addBtn').addEventListener('click',() => {
+addBtn.addEventListener('click',() => {
+  const userTask = document.getElementById('user-task');
 
-  const userTask = document.getElementById('userTask');
+  const tableRecode = document.createElement('tr');
+  myTodo.appendChild(tableRecode);
 
-  const addIdnum  = () => {  
-    const p = document.createElement('p');
-    p.textContent = i;
-    idNum.appendChild(p);
-    i ++;
-  };
-  
-  const addComent = () => {
-    const p = document.createElement('p');
-    p.textContent = userTask.value;
-    coment.appendChild(p);
-    userTask.value = '';
-  };
+  const todoId = document.createElement('td');
+  todoId.textContent = increaseNum;
 
-  const addStatus = () => {
-    const br = document.createElement('br');
-    const input = document.createElement('input');
-    input.type = 'button';
-    input.value = '作業中';
-    input.className = 'mtr';
-    status.appendChild(br);
-    status.appendChild(input);
-  };
+  const todoComment = document.createElement('td');
+  todoComment.textContent = userTask.value;
 
-  const addStatus2 = () => {
-    const input = document.createElement('input');
-    input.type = 'button';
-    input.value = '削除';
-    input.className = 'mtr';
-    status.appendChild(input);
-  };
+  const workBtn = document.createElement('button');
+  workBtn.textContent = '作業中';
 
+  const eraseBtn = document.createElement('button');
+  eraseBtn.textContent = '削除';  
+  eraseBtn.addEventListener('click', (elem) => {
+    const tr = elem.target.closest('tr');
+    tr.parentNode.removeChild(tr);
+    
+    const taskList = myTodo.getElementsByTagName('tr');
+    increaseNum = 0;
+    Array.from(taskList, tr => {
+      tr.getElementsByTagName('td')[0].textContent = increaseNum;
+      increaseNum ++;
+    });
+  });
 
+  tableRecode.appendChild(todoId);
+  tableRecode.appendChild(todoComment);
+  tableRecode.appendChild(workBtn);
+  tableRecode.appendChild(eraseBtn);
 
-  addIdnum();
-  addComent();
-  addStatus();
-  addStatus2();
+  userTask.value = '';
+  increaseNum ++;
 });
