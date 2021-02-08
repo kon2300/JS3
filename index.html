@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>課題③-3</title>
+  <title>課題③-４</title>
 </head>
   <style>
     .title {
@@ -14,14 +14,20 @@
       width: 60px;
       height: 25px;
     }
+    .disp-none {
+      display: none;
+    }
+    .tb-row {
+      display: table-row;
+    }
   </style>
 <body>
   <div class="title">ToDoリスト</div>
   <div id="selection">
     <p>
-      <input type="radio" name="category" checked="checked">すべて
-      <input type="radio" name="category">作業中
-      <input type="radio" name="category">完了
+      <input type="radio" name="category" value="all" id="radio-all-selector" checked="checked">すべて
+      <input type="radio" name="category" value="working" id="radio-working-selector">作業中
+      <input type="radio" name="category" value="done" id="radio-done-selector">完了
     </p>
   </div>
   <div id="selection2">
